@@ -1,0 +1,95 @@
+/* Reset de margin e padding para garantir consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo geral do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    padding: 20px;
+}
+
+/* Título centralizado */
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 30px;
+}
+
+/* Caixa contendo os inputs */
+.caixa {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Layout das caixas de input, alinhamento das caixas */
+.caixa div {
+    margin-bottom: 15px;
+}
+
+/* Títulos e labels dentro das caixas */
+.caixa p {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+/* Inputs e selects */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Estilo do checkbox */
+input[type="checkbox"] {
+    margin-top: 5px;
+}
+
+/* Layout de flexbox para alinhas as caixas situacao, valor, data e observações */
+.caixa-flex {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Caixa da observação ao lado da caixa de situacao, valor e data */
+.caixa-observacao {
+    flex: 1;
+}
+
+/* Estilo do botão de cadastro e reset */
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+input[type="button"],
+input[type="reset"] {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    margin: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+input[type="button"]:hover,
+input[type="reset"]:hover {
+    background-color: #2980b9;
+}

@@ -1,0 +1,140 @@
+<!-- defina um documento html
+ 
+        No documento, inclua cabeçalho, corpo e rodapé,
+        No cabeçalho, definir um título para a página.
+        No corpo da página, inclua um paragrafo com o texto:
+        Hello World!!!
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revisão - Programação III - 2025</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <h1>Cadastro de Veículos</h1>
+    <form>
+    <div class="caixa">
+        <div>
+            <p>Código:</p>
+            <input type="number" name="codigo" id="camp_cod"><br><br>
+        </div>
+        <div>
+            <p>Modelo:</p>
+            <input type="text" name="modelo" id="camp_modelo"><br><br>
+        </div>
+        <div>
+            <p>Fabricante:</p>
+            <select name="fabricante">
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+                <option value="Hyundai">Hyundai</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="caixa-flex">
+        <div class="caixa">
+            <p>Situacao:</p>
+            <input type="checkbox" name="situacao">Novo<br><br>
+            <input type="checkbox" name="situacao">Usado<br><br>
+            <input type="checkbox" name="situacao">Alugado<br><br>
+
+
+            <p>Valor:</p>
+            <input type="number" name="val" id="camp_valor"><br><br>
+
+            <p>Data:</p>
+            <input type="date" name="data" id="camp_data"><br><br>
+        </div>
+        <div class="caixa-observacao">
+            <p>Observações:</p>
+            <input type="text" name="text"><br><br>
+        </div>
+    </div>
+    
+    <div class="centro">
+
+        <table id="tabelaVeiculos" border="1">
+            <tr>
+                <th scope="col">Código</th>
+                <th scope="col">Modelo</th>
+                <th scope="col">Data</th>
+                <th scope="col">Valor</th>
+            </tr>
+            <tbody id="corpoTabela">
+
+            </tbody>
+        
+        </table>
+    
+    </div>
+
+</body>
+    <footer>
+        <input type="button" name="Cadastro" value="Cadastro" id="btnCadastrar">
+        <input type="reset" name="limpar" value="Limpar" id="btnLimpar">
+    </footer>
+</form>
+    <script type="text/javascript">
+
+        $("#btnCadastrar").click(function(){
+
+            var campo_codigo = document.getElementById("camp_cod").value;
+            var modelo = document.getElementById("camp_modelo").value;
+            var valor = document.getElementById("camp_valor").value;
+            var data = document.getElementById("camp_data").value;
+            
+            
+            let dataAtual = new date();
+            let dataVeiculo = new date(data);
+            
+            let erros = [];
+            
+            
+            
+            if(isNaN(campo_codigo)){
+                alert("O código deve ser um número válido.");
+                return;
+            }
+            
+            if(camp_cod > 0 && camp_cod <= 10000){
+               alert("Código válido:" + campo_codigo);
+            }
+            else{
+                alert("O código deve estar entre 1 e 10")
+            }
+        });
+
+        if(modelo.length < 1 || modelo.length > 1000){
+            erros.push('Modelo deve ter entre 1 e 1000 caracteres.');
+        }
+
+        if(valor < 1000 || valor > 10000){
+            erros.push('Valor deve estar entre 1000 e 10000.');
+        }
+
+        if(dataVeiculo >= dataAtual){
+            erros.push('A data do veículo deve ser inferior á data atual.');
+            return erros;
+        }
+
+
+        function adicionarTabela(codigo, modelo, valor, data){
+            let tabela = document.getElementById("corpoTabela");
+            let novaLinha = tabela.insertRow();
+            novalinha.innnerHTML = `<td>${codigo}</td><td>${modelo}</td><td>${data}</td><td>${valor}</td>`;
+        }
+
+        $("#btnLimpar").click(function(){
+           $("form")[0].reset();
+        });
+        
+    </script>
+</html>
